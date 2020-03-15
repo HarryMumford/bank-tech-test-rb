@@ -1,6 +1,7 @@
 class Account
-  def initialize
+  def initialize(transaction = Transaction.new)
     @balance = 0
+    @transaction_instance = transaction
   end
 
   def deposit(amount)
@@ -9,5 +10,9 @@ class Account
 
   def withdraw(amount)
     @balance -= amount
+  end
+
+  def print_statement
+    print @transaction_instance.statement
   end
 end
