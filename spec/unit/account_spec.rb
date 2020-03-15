@@ -5,16 +5,24 @@ describe Account do
   let(:account) { Account.new(transaction_instance) }
 
   describe '#deposit' do
-    it 'returns correct balance' do
+    it 'returns correct balance after 1 deposit' do
+      expect(account.deposit(100)).to eq(100)
+    end
+
+    it 'returns correct balance after 2 deposits' do
       account.deposit(100)
       expect(account.deposit(100)).to eq(200)
     end
   end
 
   describe '#withdraw' do
-    it 'returns correct balance' do
+    it 'returns correct balance after 1 deposit' do
       account.deposit(100)
       expect(account.withdraw(50)).to eq(50)
+    end
+
+    it 'raises error when withdrawing more than balance' do
+      expect{account.withdraw(50)}.to raise_error('Insufficient funds')
     end
   end
 
