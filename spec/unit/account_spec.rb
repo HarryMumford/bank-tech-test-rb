@@ -22,7 +22,7 @@ describe Account do
     end
 
     it 'raises error when withdrawing more than balance' do
-      expect{account.withdraw(50)}.to raise_error('Insufficient funds')
+      expect { account.withdraw(50) }.to raise_error('Insufficient funds')
     end
   end
 

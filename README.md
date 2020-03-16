@@ -33,7 +33,6 @@ I began by drawing class diagrams and identifying the methods I am likely going 
 ### Edge cases
 
 User cannot withdraw more than balance
-User cannot input anything other than a positive integer when withdrawing and depositing
 User cannot print transactions if empty
 
 ### Classes:
