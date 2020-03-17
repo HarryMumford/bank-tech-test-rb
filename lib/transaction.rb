@@ -1,7 +1,7 @@
 class Transaction
-  def initialize(statement_instance = Statement.new)
+  def initialize(statement_class = Statement)
     @log = []
-    @statement_instance = statement_instance
+    @statement_instance = statement_class
   end
 
   def log_deposit(amount, date = formatted_date, balance)
@@ -13,7 +13,7 @@ class Transaction
   end
 
   def generate_statement
-    @statement_instance.format_statement(@log)
+    @statement_instance.new(@log).format_statement
   end
 
   private

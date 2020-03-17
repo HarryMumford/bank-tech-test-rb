@@ -1,8 +1,9 @@
 require 'transaction'
 
 describe Transaction do
-  let(:statement) { double :statement, :format_statement => 'formatted statement' }
-  let(:transaction) { Transaction.new(statement) }
+  let(:statement_instance) { double :statement_instance, :format_statement => 'formatted statement' }
+  let(:statement_class) { double :statement_class, :new=> statement_instance }
+  let(:transaction) { Transaction.new(statement_class) }
 
   describe '#log_deposit' do
     it 'logs 1 deposit' do
