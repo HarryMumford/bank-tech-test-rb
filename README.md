@@ -40,10 +40,12 @@ User cannot print transactions if empty
 Account
   - withdraw
   - deposit
-  - print
+  - print_statement
 
 Transaction
-  - log
+  - log_deposit
+  - log_withdrawal
+  - generate_statement
 
 Statement
   - format
