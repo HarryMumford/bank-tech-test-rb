@@ -1,6 +1,7 @@
 class Transaction
-  def initialize
+  def initialize(statement_instance = Statement.new)
     @log = []
+    @statement_instance = statement_instance
   end
 
   def log_deposit(amount, date = formatted_date)
@@ -9,6 +10,10 @@ class Transaction
 
   def log_withdrawal(amount, date = formatted_date)
     @log << { type: "withdrawal", amount: amount, date: date }
+  end
+
+  def generate_statement
+    @statement_instance.format_statement(@log)
   end
 
   private

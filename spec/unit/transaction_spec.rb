@@ -1,8 +1,8 @@
 require 'transaction'
 
 describe Transaction do
-  # let(:statement) { double :statement, :format_statement => 'formatted statement' }
-  let(:transaction) { Transaction.new }
+  let(:statement) { double :statement, :format_statement => 'formatted statement' }
+  let(:transaction) { Transaction.new(statement) }
 
   describe '#log_deposit' do
     it 'logs 1 deposit' do
@@ -31,6 +31,12 @@ describe Transaction do
         { type: "withdrawal", amount: 100, date: "01/01/2020" }
       ]
       expect(transaction.log_withdrawal(100, "01/01/2020")).to eq(log)
+    end
+  end
+
+  describe '#generate_statement' do
+    it 'generates a new statement' do
+      expect(transaction.generate_statement).to eq('formatted statement')
     end
   end
 end

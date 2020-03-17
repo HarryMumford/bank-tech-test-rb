@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/mnt/c/Users/harry/projects/bank-tech-test-rb/spec/unit/account_spec.rb": {
+      "/Users/student/tech-tests/bank-tech-test-rb/spec/unit/account_spec.rb": {
         "lines": [
           1,
           null,
@@ -40,7 +40,7 @@
           null
         ]
       },
-      "/mnt/c/Users/harry/projects/bank-tech-test-rb/lib/account.rb": {
+      "/Users/student/tech-tests/bank-tech-test-rb/lib/account.rb": {
         "lines": [
           1,
           1,
@@ -64,28 +64,13 @@
           null
         ]
       },
-      "/mnt/c/Users/harry/projects/bank-tech-test-rb/spec/unit/transaction_spec.rb": {
+      "/Users/student/tech-tests/bank-tech-test-rb/spec/unit/transaction_spec.rb": {
         "lines": [
           1,
           null,
           1,
-          null,
-          5,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
+          6,
+          6,
           null,
           1,
           1,
@@ -94,21 +79,43 @@
           null,
           1,
           1,
+          null,
+          1,
+          null,
+          null,
           1,
           null,
           null,
           null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
           1,
           null,
           null,
           null
         ]
       },
-      "/mnt/c/Users/harry/projects/bank-tech-test-rb/lib/transaction.rb": {
+      "/Users/student/tech-tests/bank-tech-test-rb/lib/transaction.rb": {
         "lines": [
           1,
           1,
-          4,
+          5,
+          5,
           null,
           null,
           1,
@@ -117,6 +124,10 @@
           null,
           1,
           3,
+          null,
+          null,
+          1,
+          1,
           null,
           null,
           1,
@@ -128,6 +139,6 @@
         ]
       }
     },
-    "timestamp": 1584372946
+    "timestamp": 1584442108
   }
 }
