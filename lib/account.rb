@@ -6,15 +6,18 @@ class Account
 
   def deposit(amount)
     @balance += amount
+    @transaction_instance.log_deposit(amount, @balance)
+    @balance
   end
 
   def withdraw(amount)
     fail 'Insufficient funds' if amount > @balance
-
     @balance -= amount
+    @transaction_instance.log_withdrawal(amount, @balance)
+    @balance
   end
 
   def print_statement
-    print @transaction_instance.statement
+    puts @transaction_instance.generate_statement
   end
 end
