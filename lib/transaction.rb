@@ -4,12 +4,13 @@ class Transaction
     @statement_instance = statement_instance
   end
 
-  def log_deposit(amount, date = formatted_date)
-    @log << { type: "deposit", amount: amount, date: date }
+  def log_deposit(amount, date = formatted_date, balance)
+    @log << { type: "deposit", amount: amount, date: date, balance: balance }
   end
 
-  def log_withdrawal(amount, date = formatted_date)
-    @log << { type: "withdrawal", amount: amount, date: date }
+  def log_withdrawal(amount, date = formatted_date, balance)
+    @log << { type: "withdrawal", amount: amount, date: date, balance: balance }
+    p @log
   end
 
   def generate_statement
@@ -19,6 +20,6 @@ class Transaction
   private
 
   def formatted_date
-    Time.now.stftime("%d/%m/%Y")
+    Time.now.strftime("%d/%m/%Y")
   end
 end
