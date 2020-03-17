@@ -10,7 +10,6 @@ class Transaction
 
   def log_withdrawal(amount, date = formatted_date, balance)
     @log << { type: "withdrawal", amount: amount, date: date, balance: balance }
-    p @log
   end
 
   def generate_statement
