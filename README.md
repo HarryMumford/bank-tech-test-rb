@@ -78,9 +78,9 @@ $ bundle
 To run app:
 
 ```
-$ pry
+$ irb
 ```
-*then in pry:*
+*then in irb:*
 ```
 > require './lib/statement.rb'
 > require './lib/transaction.rb'
