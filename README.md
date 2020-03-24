@@ -1,6 +1,7 @@
 # Bank tech test
 
-An un-timed tech-test with the following requirements:
+An example of SOLID code principles. Includes 100% test coverage, fully isolated unit tests and a feature test. 
+Time taken: ~ 5 hours
 
 ## Specification
 
@@ -33,7 +34,6 @@ I began by drawing class diagrams and identifying the methods I am likely going 
 ### Edge cases
 
 User cannot withdraw more than balance
-User cannot print transactions if empty
 
 ### Classes:
 
@@ -48,9 +48,9 @@ Transaction
   - generate_statement
 
 Statement
-  - format
+  - format_statement
 
-I structured the code into these main classes. The bank acts as a controller and passes the responsibility of formatting a single transaction to the transaction class. Here it formats it into a line with the current date. The bank can also call a print method that uses the logic in the statement class to print a correctly formatted statement.
+I structured the code into these main classes. To reduce coupling, I ensured the classes forward responsibility from account to transaction to statement. Account is responsible for handling the transactions. Transaction is responsible for logging the transactions and statement is responsible of formatting the statement.
 
 ## Technologies used
 
@@ -91,9 +91,29 @@ $ pry
 > bank.withdraw(100)
 > bank.print
 ```
-Screenshot from pry:
+Example from irb:
 
-<img src='images/pry.png' width='300px'>
+```
+2.6.3 :001 > require './lib/account.rb'
+ => true 
+2.6.3 :002 > require './lib/transaction.rb'
+ => true 
+2.6.3 :003 > require './lib/statement.rb'
+ => true 
+2.6.3 :004 > account = Account.new
+ => #<Account:0x00007fa5400d43b8 @balance=0, @transaction_instance=#<Transaction:0x00007fa5400d4390 @log=[], @statement_class=Statement>> 
+2.6.3 :005 > account.deposit(100)
+ => 100 
+2.6.3 :006 > account.deposit(1000)
+ => 1100 
+2.6.3 :007 > account.withdraw(300)
+ => 800 
+2.6.3 :008 > account.print_statement
+date || credit || debit || balance
+24/03/2020 || || 300.00 || 800.00
+24/03/2020 || 1000.00 || || 1100.00
+24/03/2020 || 100.00 || || 100.00
+```
 
 To run tests:
 
@@ -101,9 +121,41 @@ To run tests:
 $ bundle exec rspec
 ```
 
-Screenshot of rspec tests:
+Rspec tests:
 
-<img src='images/tests.png' width='600px'>
+```
+Account
+  User can make multiple transactions and print formatted statement
+
+Account
+  #deposit
+    returns correct balance after 1 deposit
+    returns correct balance after 2 deposits
+    it logs 1 deposit
+  #withdraw
+    returns correct balance after 1 deposit
+    raises error when withdrawing more than balance
+    it logs 1 withdrawal
+  #print
+    it outputs the correctly formatted statement
+
+Statement
+  #format_statement
+    formats the statement correctly
+
+Transaction
+  #log_deposit
+    logs 1 deposit
+    logs 2 deposits
+  #log_withdrawal
+    logs 1 withdrawal
+    logs 2 withdrawals
+  #generate_statement
+    generates a new statement
+
+Finished in 0.02673 seconds (files took 0.31108 seconds to load)
+14 examples, 0 failures
+```
 
 
 To run linter:
