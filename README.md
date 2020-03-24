@@ -1,6 +1,6 @@
 # Bank tech test
 
-An example of SOLID code principles. Includes 100% test coverage, fully isolated unit tests and a feature test. 
+An example of writing SOLID high quality code using a strict TDD process. Includes 100% test coverage, fully isolated unit tests and a feature test. 
 Time taken: ~ 5 hours
 
 ## Specification
