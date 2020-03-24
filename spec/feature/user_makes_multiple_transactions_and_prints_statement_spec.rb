@@ -14,6 +14,6 @@ describe Account do
     line_2 = "#{Time.now.strftime("%d/%m/%Y")} || 2000.00 || || 3000.00\n"
     line_3 = "#{Time.now.strftime("%d/%m/%Y")} || 1000.00 || || 1000.00\n"
 
-    expect{account.print_statement}.to output(header + line_1 + line_2 + line_3).to_stdout
+    expect { account.print_statement }.to output(header + line_1 + line_2 + line_3).to_stdout
   end
 end

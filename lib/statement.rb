@@ -15,8 +15,11 @@ class Statement
 
   def format_entries
     @log.map do |entry|
-      @formatted_log << "#{entry[:date]} || || #{entry[:amount]}.00 || #{entry[:balance]}.00" if entry[:type] == "withdrawal"
-      @formatted_log << "#{entry[:date]} || #{entry[:amount]}.00 || || #{entry[:balance]}.00" if entry[:type] == "deposit"
+      if entry[:type] == "withdrawal"
+        @formatted_log << "#{entry[:date]} || || #{entry[:amount]}.00 || #{entry[:balance]}.00" 
+      else
+        @formatted_log << "#{entry[:date]} || #{entry[:amount]}.00 || || #{entry[:balance]}.00" 
+      end
     end
   end
 end

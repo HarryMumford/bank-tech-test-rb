@@ -12,6 +12,7 @@ class Account
 
   def withdraw(amount)
     fail 'Insufficient funds' if amount > @balance
+
     @balance -= amount
     @transaction_instance.log_withdrawal(amount, @balance)
     @balance

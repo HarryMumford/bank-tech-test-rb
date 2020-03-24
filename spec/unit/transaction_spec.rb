@@ -2,7 +2,7 @@ require 'transaction'
 
 describe Transaction do
   let(:statement_instance) { double :statement_instance, :format_statement => 'formatted statement' }
-  let(:statement_class) { double :statement_class, :new=> statement_instance }
+  let(:statement_class) { double :statement_class, :new => statement_instance }
   let(:transaction) { Transaction.new(statement_class) }
 
   describe '#log_deposit' do
@@ -23,7 +23,7 @@ describe Transaction do
 
   describe '#log_withdrawal' do
     it 'logs 1 withdrawal' do
-      withdrawal_log = { type: "withdrawal", amount: 100, date: "01/01/2020", balance: 1000}
+      withdrawal_log = { type: "withdrawal", amount: 100, date: "01/01/2020", balance: 1000 }
 
       expect(transaction.log_withdrawal(100, "01/01/2020", 1000)).to eq([withdrawal_log])
     end
